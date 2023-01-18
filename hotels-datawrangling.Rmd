@@ -132,7 +132,7 @@ city hotels. Which type of hotel is higher, on average?
 
 City hotels are higher on average. 
 
-```{r label-me-3}
+```{r summary stats}
 hotels %>%
   group_by(hotel) %>%
   summarize(
@@ -152,12 +152,19 @@ month) as well as how many people (adults, children, and babies) stayed in
 the room. You can investigate the data in the viewer to locate these values, but 
 preferably you should identify them in a reproducible way with some code. 
 
-**Hint:** For example, you can `filter` for the given `adr` amounts and 
-`select` the relevant columns.
 
-```{r label-me-4}
-# add code here
-# pay attention to correctness and code style
+```{r decode summary stats}
+hotels %>%
+  filter(
+    adr == 5400
+  ) %>%
+  select(hotel, arrival_date_month, arrival_date_year, adults, babies, children)
+
+hotels %>%
+  filter(
+    adr == -6.38
+  ) %>%
+  select(hotel, arrival_date_month, arrival_date_year, adults, babies, children)
 ```
 
 
